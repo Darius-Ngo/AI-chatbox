@@ -23,9 +23,9 @@ frontend/*.tsbuildinfo
 frontend/next-env.d.ts
 
 # Backend (Spring Boot / Maven)
-backend/target/
-backend/.mvn/wrapper/maven-wrapper.jar
-backend/HELP.md
+backend-spring/target/
+backend-spring/.mvn/wrapper/maven-wrapper.jar
+backend-spring/HELP.md
 
 # Dữ liệu cục bộ của Docker (nếu mount volume vào thư mục dự án)
 postgres-data/
