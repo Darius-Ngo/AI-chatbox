@@ -17,5 +17,19 @@ services:
       timeout: 5s
       retries: 10
 
+  flyway:
+    image: flyway/flyway:13
+    container_name: aichat-flyway
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      FLYWAY_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB}
+      FLYWAY_USER: ${POSTGRES_USER}
+      FLYWAY_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ./db/migration:/flyway/sql:ro
+    command: migrate
+
 volumes:
   postgres-data:
