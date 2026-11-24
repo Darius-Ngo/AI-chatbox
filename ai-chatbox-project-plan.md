@@ -1,6 +1,6 @@
 # AI Chatbox — Fullstack Portfolio Project
 
-> **📍 Bước hiện tại: 1.5** (1.7 đã làm trước) — xem [mục 12](#12-kế-hoạch-code-chi-tiết-và-tiến-độ). Sau mỗi bước: tick `[x]`, cập nhật dòng này, commit.
+> **📍 Bước hiện tại: 1.6** (1.7 đã làm trước) — xem [mục 12](#12-kế-hoạch-code-chi-tiết-và-tiến-độ). Sau mỗi bước: tick `[x]`, cập nhật dòng này, commit.
 
 ## 1. Mục tiêu
 
@@ -305,7 +305,7 @@ Cần giải thích được: vì sao chọn SSE và vì sao phải dùng `fetch
 - [x] **1.3** Khởi tạo Spring Boot trong `backend-spring/` (để dành cho giai đoạn 9, không đụng tới cho đến lúc đó).
 - [x] **1.4** Cài công cụ trên máy: Node.js LTS, Docker Desktop.
   - Kiểm tra: `node -v`, `npm -v`, `docker --version`, `docker compose version` đều in phiên bản.
-- [ ] **1.5** Docker Compose cho PostgreSQL — `docker-compose.yml` (service `postgres`, named volume, healthcheck), `.env.example` (tên DB, user, mật khẩu mẫu).
+- [x] **1.5** Docker Compose cho PostgreSQL — `docker-compose.yml` (service `postgres`, named volume, healthcheck), `.env.example` (tên DB, user, mật khẩu mẫu).
   - Kiểm tra: `docker compose up -d postgres` → `docker compose ps` báo `healthy`; `docker compose exec postgres psql -U <user> -d <db> -c "select 1"`.
 - [ ] **1.6** Service Flyway trong Compose, đọc `db/migration/`; migration đầu `V1__enable_extensions.sql` (bật `citext`).
   - Kiểm tra: `docker compose run --rm flyway migrate` thành công; `flyway info` thấy V1 `Success`; bảng `flyway_schema_history` tồn tại.
