@@ -1,6 +1,6 @@
 # AI Chatbox — Fullstack Portfolio Project
 
-> **📍 Bước hiện tại: 1.4** — xem [mục 12](#12-kế-hoạch-code-chi-tiết-và-tiến-độ). Sau mỗi bước: tick `[x]`, cập nhật dòng này, commit.
+> **📍 Bước hiện tại: 1.5** (1.7 đã làm trước) — xem [mục 12](#12-kế-hoạch-code-chi-tiết-và-tiến-độ). Sau mỗi bước: tick `[x]`, cập nhật dòng này, commit.
 
 ## 1. Mục tiêu
 
@@ -289,7 +289,8 @@ Cần giải thích được: vì sao chọn SSE và vì sao phải dùng `fetch
 - Mỗi bước kết thúc bằng mục **Kiểm tra** — chỉ tick khi đã chạy thật và đạt.
 
 ### Thiết lập máy mới (làm một lần trên mỗi máy)
-1. Cài Git, Node.js LTS, Docker Desktop (Windows cần WSL2). Kiểm tra: `node -v`, `npm -v`, `docker compose version`.
+1. Cài Git, Node.js LTS, Docker Desktop (Windows cần WSL2). Kiểm tra: `node -v`, `npm -v`, `docker compose version`, `docker run --rm hello-world`.
+   - Nếu Docker báo *Virtual Machine Platform is not enabled*: PowerShell (Admin) `wsl --install --no-distribution`, rồi khởi động lại bằng **"Update and restart"** (nút "Restart" thường sẽ *hoãn* cài tính năng — xem `C:\Windows\Logs\CBS\CBS.log`, dòng "Deferring … at users request"). Nếu vẫn kẹt: `DISM /Online /Cleanup-Image /RestoreHealth`, `sfc /scannow`, bật lại tính năng bằng `dism /online /enable-feature ... /all`.
 2. `git clone` rồi `git pull` để lấy tiến độ mới nhất.
 3. Tạo `.env` từ `.env.example` ở gốc repo (và trong `backend-node/` nếu có). **`.env` không có trong Git** — lưu secret (AI API key, JWT secret) ở trình quản lý mật khẩu để chép sang máy khác.
 4. `npm install` trong `frontend/` và `backend-node/` (khi các thư mục này đã có `package.json`).
@@ -302,13 +303,13 @@ Cần giải thích được: vì sao chọn SSE và vì sao phải dùng `fetch
 - [x] **1.1** Tạo Git repository và `.gitignore` gốc (bỏ qua `.env`).
 - [x] **1.2** Khởi tạo Next.js + TypeScript + Tailwind CSS trong `frontend/`.
 - [x] **1.3** Khởi tạo Spring Boot trong `backend-spring/` (để dành cho giai đoạn 9, không đụng tới cho đến lúc đó).
-- [ ] **1.4** Cài công cụ trên máy: Node.js LTS, Docker Desktop.
+- [x] **1.4** Cài công cụ trên máy: Node.js LTS, Docker Desktop.
   - Kiểm tra: `node -v`, `npm -v`, `docker --version`, `docker compose version` đều in phiên bản.
 - [ ] **1.5** Docker Compose cho PostgreSQL — `docker-compose.yml` (service `postgres`, named volume, healthcheck), `.env.example` (tên DB, user, mật khẩu mẫu).
   - Kiểm tra: `docker compose up -d postgres` → `docker compose ps` báo `healthy`; `docker compose exec postgres psql -U <user> -d <db> -c "select 1"`.
 - [ ] **1.6** Service Flyway trong Compose, đọc `db/migration/`; migration đầu `V1__enable_extensions.sql` (bật `citext`).
   - Kiểm tra: `docker compose run --rm flyway migrate` thành công; `flyway info` thấy V1 `Success`; bảng `flyway_schema_history` tồn tại.
-- [ ] **1.7** Khởi tạo `backend-node/`: `package.json`, TypeScript strict (`tsconfig.json`), Express 5, script `dev` (chạy watch), `build`, `start`.
+- [x] **1.7** Khởi tạo `backend-node/`: `package.json`, TypeScript strict (`tsconfig.json`), Express 5, script `dev` (chạy watch), `build`, `start`.
   - Kiểm tra: `npm run dev` khởi động không lỗi; `npm run build` sinh `dist/`.
 - [ ] **1.8** ESLint + Prettier cho `backend-node/`; thêm Prettier cho `frontend/` (ESLint đã có).
   - Kiểm tra: `npm run lint` và `npm run format:check` chạy được ở cả hai.
