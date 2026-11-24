@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    // Node 22 hỗ trợ đầy đủ ES2023 nên không cần hạ cú pháp xuống thấp hơn.
+    "target": "es2023",
+    "lib": ["es2023"],
+    // "nodenext" bắt TypeScript tuân theo đúng luật ESM của Node (import nội bộ phải có đuôi .js).
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "rootDir": "src",
+    "outDir": "dist",
+    "sourceMap": true,
+
+    "strict": true,
+    // arr[i] / obj[key] có kiểu `T | undefined` — buộc xử lý trường hợp không tồn tại.
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    // Import chỉ dùng làm kiểu phải ghi `import type`, để khi biên dịch không sinh import thừa.
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
